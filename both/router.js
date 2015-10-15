@@ -8,7 +8,10 @@ Router.configure({
 
 Router.route('/', {
   name: 'home',
-  title: 'Home'
+  title: 'Home',
+  waitOn: function () {
+    return Meteor.subscribe('Barcodes');
+  }
 });
 
 Router.route('/scan', {

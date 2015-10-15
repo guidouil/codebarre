@@ -1,12 +1,12 @@
 <template name='home'>
   <div class="ui segment basic fluid center aligned">
     {{#if barcodes}}
-      <table class="ui celled table unstackable">
+      <table class="ui celled table unstackable small">
         <thead>
           <tr>
             <th>Name</th>
             <th>Brand</th>
-            <th>Barcode value</th>
+            <th>Barcode</th>
             <th>Format</th>
             <th>Date</th>
             <th></th>
@@ -15,7 +15,7 @@
         <tbody>
           {{#each barcodes}}
           <tr>
-            <td>{{product.name}}</td>
+            <td>{{product.product_name}}</td>
             <td>{{product.brands}}</td>
             <td>{{value}}</td>
             <td>{{format}}</td>
