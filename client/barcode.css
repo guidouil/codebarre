@@ -1,0 +1,5 @@
+/* CSS declarations go here */
+body, .pusher, .sidebar {
+  height: 100%;
+  min-height: 100%;
+}

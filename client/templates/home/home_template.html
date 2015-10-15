@@ -1,0 +1,35 @@
+<template name='home'>
+  <div class="ui segment basic fluid center aligned">
+    {{#if barcodes}}
+      <table class="ui celled table unstackable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Barcode value</th>
+            <th>Format</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each barcodes}}
+          <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.brands}}</td>
+            <td>{{value}}</td>
+            <td>{{format}}</td>
+            <td>{{fromNow createdAt}}</td>
+            <td class="right aligned" data-action="delete" data-id="{{_id}}">
+              <i class="delete icon"></i>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <h3>Please scan some barcodes</h3>
+    {{/if}}
+
+  </div>
+</template>
