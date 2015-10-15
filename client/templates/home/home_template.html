@@ -7,7 +7,6 @@
             <th>Name</th>
             <th>Brand</th>
             <th>Barcode</th>
-            <th>Format</th>
             <th>Date</th>
             <th></th>
           </tr>
@@ -17,8 +16,7 @@
           <tr>
             <td>{{product.product_name}}</td>
             <td>{{product.brands}}</td>
-            <td>{{value}}</td>
-            <td>{{format}}</td>
+            <td>{{value}} [{{format}}]</td>
             <td>{{fromNow createdAt}}</td>
             <td class="right aligned" data-action="delete" data-id="{{_id}}">
               <i class="delete icon"></i>

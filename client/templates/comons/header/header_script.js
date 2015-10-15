@@ -6,6 +6,9 @@ Template.header.events({
   'click [data-action=sidebar]': function () {
     $('.ui.labeled.icon.sidebar').sidebar('toggle');
   },
+  'click [data-action=goHome]': function () {
+    Router.go('home');
+  },
   'click [data-action=scan]': function () {
     scan();
   },
