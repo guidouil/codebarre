@@ -1,30 +1,25 @@
 <template name='home'>
-  <div class="ui segment basic fluid center aligned">
-    {{#if barcodes}}
-      <table class="ui celled table unstackable small">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Brand</th>
-            <th>Barcode</th>
-            <th>Date</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each barcodes}}
-          <tr>
-            <td>{{product.product_name}}</td>
-            <td>{{product.brands}}</td>
-            <td>{{value}} [{{format}}]</td>
-            <td>{{fromNow createdAt}}</td>
-            <td class="right aligned" data-action="delete" data-id="{{_id}}">
+  <div class="ui segment basic fluid">
+    {{#if scans}}
+      <div class="ui relaxed divided list">
+      {{#each scans}}
+        <div class="item">
+          <img class="ui mini image" src="{{getImg product.image_front_small_url}}">
+          <div class="content">
+            <a class="header">{{product.product_name}} <small>{{product.brands}}</small> <strong>{{formatMoney price}}</strong></a>
+            <div class="description">{{fromNow createdAt}} <small>{{value}} [{{format}}]</small></div>
+            <button class="ui labeled small basic green icon button" data-action="edit" data-id="{{_id}}">
+              <i class="edit icon"></i>
+              Edit
+            </button>
+            <button class="ui labeled small basic red icon button" data-action="delete" data-id="{{_id}}">
               <i class="delete icon"></i>
-            </td>
-          </tr>
-          {{/each}}
-        </tbody>
-      </table>
+              Delete
+            </button>
+          </div>
+        </div>
+      {{/each}}
+      </div>
     {{else}}
       <h3>Please scan some barcodes</h3>
     {{/if}}

@@ -1,3 +1,16 @@
 <template name='scan'>
-  <button id="scan" class="fluid ui button">scan</button>
+  {{#autoForm id="scanning" enctype="multipart/form-data" doc=this collection="Scans" type="update"}}
+  <div class="ui segment basic fluid">
+    <h3>Edit scanned product</h3>
+    {{> afQuickField name="product.product_name" type="text" label="Product" id="productName"}}
+    {{> afQuickField name="product.brands" type="text" label="Brand" id="productBrand"}}
+    {{> afQuickField name="price" id="productPrice"}}
+    <button class="ui primary button" data-action="save">
+      Save
+    </button>
+    <button class="ui button"  data-action="cancel">
+      Discard
+    </button>
+  </div>
+  {{/autoForm}}
 </template>

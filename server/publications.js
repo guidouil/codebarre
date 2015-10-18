@@ -1,3 +1,3 @@
-Meteor.publish('Barcodes', function () {
-  return Barcodes.find({}, { reactive: true, sort: {createdAt: -1}, limit: 10 });
+Meteor.publish('Scans', function () {
+  return Scans.find({}, { reactive: true, sort: {createdAt: -1}, limit: 10 });
 });

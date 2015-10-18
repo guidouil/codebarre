@@ -13,7 +13,7 @@ Template.header.events({
     scan();
   },
   'click [data-action=fakeScan]': function () {
-    var scanId = Barcodes.insert({
+    var scanId = Scans.insert({
       value: '3336971010012',
       format: 'EAN_13',
       createdAt: new Date(),
@@ -22,6 +22,7 @@ Template.header.events({
     Meteor.call('searchEan', '3336971010012', scanId, function (error, result) {
       console.log(error, result);
     });
+    Router.go('/scan/' + scanId);
   }
 });
 
