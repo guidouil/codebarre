@@ -2,8 +2,8 @@ UI.registerHelper('isMobile', function () {
   return Meteor.isCordova;
 });
 
-UI.registerHelper('formatMoney', function(value) {
-  if(value) {
+UI.registerHelper('formatMoney', function (value) {
+  if (value) {
     switch (Session.get('language')) {
     case 'fr' :
       return parseFloat(value).toMoney(2, ',', ' ') + '€';
@@ -42,7 +42,7 @@ Number.prototype.toMoney = function (decimals, decimal_sep, thousands_sep)
    return sign + (j ? i.substr(0, j) + t : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : '');
 };
 
-UI.registerHelper('formatDate', function(date){
+UI.registerHelper('formatDate', function (date) {
   if (date !== '') {
     return moment(date).format('DD/MM/YYYY HH:mm');
   }

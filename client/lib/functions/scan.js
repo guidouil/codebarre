@@ -5,7 +5,6 @@ scan = function () {
         var scanId = Scans.insert({
           value: result.text,
           format: result.format,
-          createdAt: new Date(),
           product: {name:'', brands:''}
         });
         if (result.format.search('EAN') !== -1) {

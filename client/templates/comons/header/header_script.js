@@ -16,7 +16,6 @@ Template.header.events({
     var scanId = Scans.insert({
       value: '3336971010012',
       format: 'EAN_13',
-      createdAt: new Date(),
       product: {name:'', brands:''}
     });
     Meteor.call('searchEan', '3336971010012', scanId, function (error, result) {
