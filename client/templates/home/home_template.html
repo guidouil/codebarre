@@ -1,12 +1,12 @@
 <template name='home'>
   <div class="ui segment basic fluid">
     {{#if scans}}
-      <div class="ui relaxed divided list">
+      <div class="ui relaxed divided list scans-list">
       {{#each scans}}
         <div class="item">
           <img class="ui mini image" src="{{getImg product.image_front_small_url}}">
           <div class="content">
-            <a class="header">{{product.product_name}} <small>{{product.brands}}</small> <strong>{{formatMoney price}}</strong></a>
+            <a class="header">{{@index}} {{product.product_name}} <small>{{product.brands}}</small> <strong>{{formatMoney price}}</strong></a>
             <div class="description">{{fromNow createdAt}} <small>{{value}} [{{format}}]</small></div>
             <button class="ui labeled small basic green icon button" data-action="edit" data-id="{{_id}}">
               <i class="edit icon"></i>
