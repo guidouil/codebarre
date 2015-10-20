@@ -10,12 +10,14 @@
             <div class="description"><strong>{{product.brands}}</strong> <small>{{fromNow createdAt}}</small></div>
             <div class="description"><small>{{value}} [{{format}}]</small></div>
           </div>
-          <button class="ui circular red icon button right floated" data-action="delete" data-id="{{_id}}">
-            <i class="trash icon"></i>
-          </button>
-          <button class="ui circular green icon button right floated" data-action="edit" data-id="{{_id}}">
-            <i class="pencil icon"></i>
-          </button>
+          <div class="right floated">
+            <button class="ui circular basic green icon button" data-action="edit" data-id="{{_id}}">
+              <i class="pencil icon"></i>
+            </button>
+            <button class="ui circular basic red icon button" data-action="delete" data-id="{{_id}}">
+              <i class="trash icon"></i>
+            </button>
+          </div>
         </div>
       {{/each}}
       </div>

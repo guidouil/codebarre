@@ -1,5 +1,5 @@
 <template name='header'>
-  <div class="ui top fixed menu borderless labeled transparent">
+  <div class="ui top fixed menu borderless labeled grey inverted">
     <div class="header item" data-action="goHome">
       alloBarcode
     </div>
@@ -8,13 +8,13 @@
     </div>
     {{#if isMobile}}
     <div class="item right labeled"  data-action="scan">
-      <i class="big barcode icon"></i>
+      <i class="big barcode black icon"></i>
       Scan
     </div>
     {{else}}
     <div class="item right labeled"  data-action="fakeScan">
-      <i class="big barcode icon"></i>
-      Fake
+      <i class="big barcode black icon"></i>
+      Scan
     </div>
     {{/if}}
   </div>
