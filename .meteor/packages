@@ -33,3 +33,4 @@ check
 ground:db
 mdg:geolocation
 percolate:paginated-subscription
+patrickml:swal

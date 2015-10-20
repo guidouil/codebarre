@@ -19,7 +19,19 @@ Template.home.events({
     Router.go('/scan/' + this._id);
   },
   'click [data-action=delete]': function (evt) {
-    Scans.remove({_id:this._id});
+    var scanId = this._id;
+    swal({
+      title: "Are you sure?",
+      text: "You will not be able to recover this scan!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes",
+      closeOnConfirm: false
+    }, function () {
+      Scans.remove({_id: scanId});
+      swal("Deleted!", "The scan has been deleted.", "success");
+    });
   },
   'scroll .scans-list': function (event) {
     event.preventDefault();

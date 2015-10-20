@@ -1,22 +1,21 @@
 <template name='home'>
-  <div class="ui segment basic fluid">
+  <div class="ui segment basic fluid scans-list-segment">
     {{#if scans}}
       <div class="ui relaxed divided list scans-list">
       {{#each scans}}
         <div class="item">
           <img class="ui mini image" src="{{getImg product.image_front_small_url}}">
           <div class="content">
-            <a class="header">{{@index}} {{product.product_name}} <small>{{product.brands}}</small> <strong>{{formatMoney price}}</strong></a>
-            <div class="description">{{fromNow createdAt}} <small>{{value}} [{{format}}]</small></div>
-            <button class="ui labeled small basic green icon button" data-action="edit" data-id="{{_id}}">
-              <i class="edit icon"></i>
-              Edit
-            </button>
-            <button class="ui labeled small basic red icon button" data-action="delete" data-id="{{_id}}">
-              <i class="delete icon"></i>
-              Delete
-            </button>
+            <a class="header">{{@index}}: {{product.product_name}} <strong>{{formatMoney price}}</strong></a>
+            <div class="description"><strong>{{product.brands}}</strong> <small>{{fromNow createdAt}}</small></div>
+            <div class="description"><small>{{value}} [{{format}}]</small></div>
           </div>
+          <button class="ui circular red icon button right floated" data-action="delete" data-id="{{_id}}">
+            <i class="trash icon"></i>
+          </button>
+          <button class="ui circular green icon button right floated" data-action="edit" data-id="{{_id}}">
+            <i class="pencil icon"></i>
+          </button>
         </div>
       {{/each}}
       </div>

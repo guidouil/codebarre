@@ -1,1 +1,9 @@
-.scans-list { max-height: 1000px; overflow: scroll;}
+.scans-list {
+  height: 100%;
+  overflow: scroll;
+}
+.scans-list-segment {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
