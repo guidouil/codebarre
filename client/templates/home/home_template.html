@@ -2,12 +2,13 @@
   <div class="ui basic fluid scans-list-segment">
     {{#if scans}}
       <div class="ui relaxed divided list scans-list">
+
       {{#each scans}}
         <div class="item">
-          <img class="ui mini image" src="{{getImg product.image_front_small_url}}">
+          <img class="ui mini image" src="{{getImg image}}">
           <div class="content">
-            <a class="header">{{@index}}: {{product.product_name}} <strong>{{formatMoney price}}</strong></a>
-            <div class="description"><strong>{{product.brands}}</strong> <small>{{fromNow createdAt}}</small></div>
+            <a class="header">{{name}} <strong>{{formatMoney price}}</strong></a>
+            <div class="description"><strong>{{brands}}</strong> <small>{{fromNow createdAt}} #{{@index}}</small></div>
             <div class="description"><small>{{value}} [{{format}}]</small></div>
           </div>
           <div class="right floated">
@@ -20,9 +21,14 @@
           </div>
         </div>
       {{/each}}
+
       </div>
     {{else}}
-      <h3>Please scan some barcodes</h3>
+      <div class="ui basic segment">
+        <div class="ui raised center aligned segment">
+          <h4>Please scan some barcodes</h4>
+        </div>
+      </div>
     {{/if}}
   </div>
 </template>

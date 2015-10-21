@@ -2,8 +2,8 @@
   {{#autoForm id="scanning" enctype="multipart/form-data" doc=this collection="Scans" type="update"}}
   <div class="ui segment basic fluid">
     <h3>Edit scanned product</h3>
-    {{> afQuickField name="product.product_name" type="text" label="Product" id="productName"}}
-    {{> afQuickField name="product.brands" type="text" label="Brand" id="productBrand"}}
+    {{> afQuickField name="name" type="text" label="Product" id="productName"}}
+    {{> afQuickField name="brand" type="text" label="Brand" id="productBrand"}}
     {{> afQuickField name="price" id="productPrice"}}
     <button class="ui primary button" data-action="save">
       Save

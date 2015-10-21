@@ -47,7 +47,8 @@ App.launchScreens({
 });
 
 App.setPreference('StatusBarOverlaysWebView', 'false');
-App.setPreference('StatusBarBackgroundColor', '#000000');
+App.setPreference('StatusBarBackgroundColor', '#000000', 'android');
+App.setPreference('StatusBarBackgroundColor', '#ffffff', 'ios');
 App.setPreference('Orientation', 'default');
 App.setPreference('Orientation', 'all', 'ios');
 
