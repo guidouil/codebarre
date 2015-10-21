@@ -17,9 +17,12 @@ Template.scan.events({
       name: productName,
       brand: productBrand
     }});
-    Products.upsert({_id: codeScanned}, {
-      product_name: productName,
-      brands: productBrand
+    Products.update({_id: codeScanned}, {
+      $set:
+      {
+        product_name: productName,
+        brands: productBrand
+      }
     });
     Router.go('/');
   },
@@ -29,5 +32,8 @@ Template.scan.events({
 });
 
 Template.scan.onRendered(function ( ){
+  if (this.data.value) {
+    Meteor.subscribe('Products', this.data.value);
+  }
   $('#price').focus();
 });

@@ -14,8 +14,7 @@ Meteor.methods({
         var productNotFound = {
           _id: codeEan,
           product_name: 'notFound',
-          brands: '404',
-          image_small_url: false
+          brands: '404'
         };
         return updScanWithProduct(scanId, productNotFound);
       }

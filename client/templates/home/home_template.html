@@ -8,8 +8,8 @@
           <img class="ui mini image" src="{{getImg image}}">
           <div class="content">
             <a class="header">{{name}} <strong>{{formatMoney price}}</strong></a>
-            <div class="description"><strong>{{brand}}</strong> <small>{{fromNow createdAt}} #{{@index}}</small></div>
-            <div class="description"><small>{{value}} [{{format}}]</small></div>
+            <div class="description"><strong>{{brand}}</strong> <small>{{fromNow createdAt}}</small></div>
+            <div class="description">#{{@index}} <small>{{value}} [{{format}}]</small></div>
           </div>
           <div class="right floated">
             <button class="ui circular basic green icon button" data-action="edit" data-id="{{_id}}">

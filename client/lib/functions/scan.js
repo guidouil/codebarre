@@ -10,9 +10,16 @@ scan = function () {
         if (result.format.search('EAN') !== -1) {
           // Search product
           Meteor.call('searchEan', result.text, scanId);
-          // ask for price
-          Router.go('/scan/' + scanId);
+        } else {
+          // insert local product
+          Products.insert({
+            _id: result.text,
+            product_name: 'notEAN',
+            brands: '404'
+          });
         }
+        // ask for price
+        Router.go('/scan/' + scanId);
       }
     },
     function (error) {
