@@ -18,7 +18,7 @@ Template.header.events({
       format: 'EAN_13',
       product: {name:'', brands:''}
     });
-    Meteor.call('searchEan', '3336971010012', scanId, function (error, result) {
+    Meteor.call('searchProductCode', '3336971010012', 'EAN_13', scanId, function (error, result) {
       console.log(error, result);
     });
     Router.go('/scan/' + scanId);
