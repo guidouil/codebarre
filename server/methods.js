@@ -5,7 +5,6 @@ Meteor.methods({
     if (product) {
       return updScanWithProduct(scanId, product);
     } else {
-      console.log('Search from openfoodfacts.org');
       // Search from openfoodfacts.org
       var response = HTTP.get('http://world.openfoodfacts.org/api/v0/product/' + codeEan + '.json');
       if (response && response.statusCode === 200 && response.data && response.data.status === 1) {
