@@ -1,6 +1,7 @@
 .scans-list {
   height: 100%;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .scans-list-segment {
   width: 100%;
