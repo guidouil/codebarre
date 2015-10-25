@@ -54,3 +54,6 @@ App.setPreference('Orientation', 'all', 'ios');
 
 App.accessRule('http://*.openfoodfacts.org/*');
 App.accessRule('http://*.meteor.com/*');
+
+// upload bug
+App.accessRule("blob:*");

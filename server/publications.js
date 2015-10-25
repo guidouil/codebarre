@@ -5,3 +5,7 @@ Meteor.publish('Scans', function (limit) {
 Meteor.publish('Products', function (productId) {
   return Products.find({_id: productId});
 });
+
+Meteor.publish('Images', function () {
+  return Images.find({});
+});

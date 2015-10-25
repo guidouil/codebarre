@@ -34,6 +34,7 @@ Template.scan.events({
 Template.scan.onRendered(function ( ){
   if (this.data.value) {
     Meteor.subscribe('Products', this.data.value);
+    Meteor.subscribe('Images');
   }
   $('#price').focus();
 });

@@ -19,7 +19,7 @@ Template.header.events({
       product: {name:'', brands:''}
     });
     Meteor.call('searchProductCode', '3336971010012', 'EAN_13', scanId, function (error, result) {
-      console.log(error, result);
+      // console.log(error, result);
     });
     Router.go('/scan/' + scanId);
   }
