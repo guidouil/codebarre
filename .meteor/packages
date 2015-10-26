@@ -36,5 +36,5 @@ percolate:paginated-subscription
 patrickml:swal
 cfs:standard-packages
 cfs:gridfs
-yogiben:autoform-file
 autoupdate
+reload
