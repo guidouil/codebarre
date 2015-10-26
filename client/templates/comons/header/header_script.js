@@ -9,6 +9,9 @@ Template.header.events({
   'click [data-action=goHome]': function () {
     Router.go('home');
   },
+  'click [data-action=signIn]': function () {
+    Router.go('/sign-in');
+  },
   'click [data-action=scan]': function () {
     scan();
   },

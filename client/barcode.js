@@ -1,3 +1,7 @@
+UI.registerHelper('isConnected', function () {
+  return Meteor.userId();
+});
+
 UI.registerHelper('isMobile', function () {
   return Meteor.isCordova;
 });

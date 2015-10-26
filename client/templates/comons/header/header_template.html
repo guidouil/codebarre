@@ -1,13 +1,19 @@
 <template name='header'>
-  <div class="ui top fixed menu borderless labeled grey inverted">
-    <div class="header item" data-action="goHome">
-      alloBarcode
+  <div class="ui top fixed large menu borderless grey inverted">
+    {{#if isConnected}}
+    <div class="item left" data-action="sidebar">
+        <i class="big sidebar icon"></i>
     </div>
-    <div class="menu">
-      {{> atNavButton}}
+    {{else}}
+    <div class="item left" data-action="signIn">
+      <i class="big user icon"></i>
+    </div>
+    {{/if}}
+    <div class="center big item" data-action="goHome">
+      allo<strong>Barcode</strong>
     </div>
     {{#if isMobile}}
-    <div class="item right labeled"  data-action="scan">
+    <div class="item right"  data-action="scan">
       <i class="big barcode black icon"></i>
       Scan
     </div>
