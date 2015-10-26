@@ -4,11 +4,13 @@
 	    <i class="home icon"></i>
 	    Home
 	  </a>
+    {{#if isMobile}}
 	  <a class="item" data-action="scan">
 	    <i class="barcode icon"></i>
 	    Scan
 	  </a>
-	  <a class="item" href="{{pathFor 'list'}}">
+    {{/if}}
+	  <a class="item" href="{{pathFor 'home'}}">
 	    <i class="list icon"></i>
 	    List
 	  </a>
