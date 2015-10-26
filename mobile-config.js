@@ -1,11 +1,11 @@
 App.info({
-  id: 'com.meteor.codebarre',
+  id: 'com.allobarcode.app',
   name: 'alloBarcode',
   description: 'Solution pour effectuer vos études de prix en temps réel',
   author: 'alloCoupon',
   email: 'guillaume@allocoupon.com',
-  website: 'https://allocoupon.com',
-  version: '0.0.9'
+  website: 'https://allobarcode.com',
+  version: '0.0.10'
 });
 
 App.icons({
