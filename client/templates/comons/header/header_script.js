@@ -8,6 +8,7 @@ Template.header.events({
   },
   'click [data-action=goHome]': function () {
     Router.go('home');
+    $('.scans-list').animate({ scrollTop: 0 }, 'slow');
   },
   'click [data-action=signIn]': function () {
     Router.go('/sign-in');
