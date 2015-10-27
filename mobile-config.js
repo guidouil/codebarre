@@ -5,7 +5,7 @@ App.info({
   author: 'alloCoupon',
   email: 'guillaume@allocoupon.com',
   website: 'https://allobarcode.com',
-  version: '0.0.11'
+  version: '0.0.14'
 });
 
 App.icons({

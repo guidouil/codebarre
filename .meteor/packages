@@ -39,3 +39,4 @@ cfs:gridfs
 autoupdate
 reload
 mdg:reload-on-resume
+d3js:d3
