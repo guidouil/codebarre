@@ -38,3 +38,4 @@ cfs:standard-packages
 cfs:gridfs
 autoupdate
 reload
+mdg:reload-on-resume
