@@ -41,8 +41,8 @@ Template.backOffice.events({
         series.push({name: sdv1.sdv, data: sdv1.currentPeriod});
         var sdv1ca = SdvCas.findOne({geogKey: sdv1.geogKey});
         if (sdv1ca) {
-          seriesCa.push({name: sdv1ca.sdv, data: sdv1ca.ca});
           seriesCa.push({name: sdv1ca.sdv + ' Conc', data: sdv1ca.conc});
+          seriesCa.push({name: sdv1ca.sdv, data: sdv1ca.ca});
         }
       }
     }
@@ -61,8 +61,8 @@ Template.backOffice.events({
         series.push({name: sdv2.sdv, data: sdv2.currentPeriod});
         var sdv2ca = SdvCas.findOne({geogKey: sdv2.geogKey});
         if (sdv2ca) {
-          seriesCa.push({name: sdv2ca.sdv, data: sdv2ca.ca});
           seriesCa.push({name: sdv2ca.sdv + ' Conc', data: sdv2ca.conc});
+          seriesCa.push({name: sdv2ca.sdv, data: sdv2ca.ca});
         }
       }
     }
