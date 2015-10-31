@@ -14,6 +14,10 @@ Meteor.publish('Sdvs', function () {
   return Sdvs.find({});
 });
 
+Meteor.publish('SdvCas', function () {
+  return SdvCas.find({});
+});
+
 Meteor.publish('Periods', function () {
   return Periods.find({});
 });

@@ -1,28 +1,42 @@
 <template name='backOffice'>
-  <div class="ui basic segment">
-    <h4>Back Office</h4>
-    <select id="sdv1" name="sdv1" class="ui dropdown">
-      <option value="">SDV 1</option>
-      {{#each sdvs}}
-        <option value="{{_id}}">{{sdv}}</option>
-      {{/each}}
-    </select>
-    <select id="sdv2" name="sdv2" class="ui dropdown">
-      <option value="">SDV 2</option>
-      {{#each sdvs}}
-        <option value="{{_id}}">{{sdv}}</option>
-      {{/each}}
-    </select>
-    <div id="container-column" style="min-width: 310px; height: 400px;"></div>
-    <hr>
-    <h5>Import your data</h5>
-    <div class="field">
-      <div class="ui action massive input">
-        <input type="text" id="csvFileText">
-        <label for="csvFile" class="ui icon button btn-file">
-           <i class="file excel outline big icon"></i>
-           <input type="file" id="csvFile" name="csvFile" style="display: none">
-        </label>
+  <div class="container">
+    <div class="ui basic segment scroll">
+      <h4>Back Office</h4>
+      <select id="sdv1" name="sdv1" class="ui dropdown">
+        <option value="">SDV 1</option>
+        {{#each sdvs}}
+          <option value="{{_id}}">{{sdv}}</option>
+        {{/each}}
+      </select>
+      <select id="sdv2" name="sdv2" class="ui dropdown">
+        <option value="">SDV 2</option>
+        {{#each sdvs}}
+          <option value="{{_id}}">{{sdv}}</option>
+        {{/each}}
+      </select>
+      <div id="container-column-ms" style="min-width: 310px; height: 400px;"></div>
+      <div id="container-column-ca" style="min-width: 310px; height: 400px;"></div>
+      <hr>
+      <h5>Import part de marché</h5>
+      <div class="field">
+        <div class="ui action massive input">
+          <input type="text" id="csvFileMsText">
+          <label for="csvFileMs" class="ui icon button btn-file">
+             <i class="file excel outline big icon"></i>
+             <input type="file" id="csvFileMs" name="csvFileMs" style="display: none">
+          </label>
+        </div>
+      </div>
+      <br>
+      <h5>Import chiffre d'affaire</h5>
+      <div class="field">
+        <div class="ui action massive input">
+          <input type="text" id="csvFileCaText">
+          <label for="csvFileCa" class="ui icon button btn-file">
+             <i class="file excel outline big icon"></i>
+             <input type="file" id="csvFileCa" name="csvFileCa" style="display: none">
+          </label>
+        </div>
       </div>
     </div>
   </div>
