@@ -31,6 +31,63 @@ Meteor.methods({
         return updScanWithProduct(scanId, productNotEan);
       }
     }
+  },
+  uploadCsv: function (csvFile) {
+    var lineNumber = 0;
+    var sdvOrder = 1;
+    var sdvs = [];
+    var fieldNames = {};
+    var document = {};
+    var currentPeriod = [];
+    var previousPeriod = [];
+    Papa.parse(csvFile, {
+      worker: true,
+      step: function (results) {
+        var row = results.data[0];
+        if (lineNumber === 0) {
+          fieldNames = row;
+        } else {
+          if (lineNumber % 3 === 0) {
+            document = {
+              'sdv' : row[1],
+              'order' : sdvOrder,
+              'currentPeriod': currentPeriod,
+              'previousPeriod': previousPeriod
+            };
+            sdvs.push(document);
+            document = {};
+            previousPeriod = [];
+            currentPeriod = [];
+            sdvOrder++;
+          } else {
+            if (row[4] === 'Periode en cours') {
+              for (var i = 5; i < 17; i++) {
+                currentPeriod.push(Number(row[i]));
+              }
+            }
+            if (row[4] === 'A-1') {
+              for (var i = 5; i < 17; i++) {
+                previousPeriod.push(Number(row[i]));
+              }
+            }
+          }
+        }
+        lineNumber++;
+      }
+    });
+    if (sdvs && sdvs.length > 0) {
+      Sdvs.remove({});
+      _.each( sdvs, function (sdv) {
+        Sdvs.insert(sdv);
+      });
+      Periods.remove({});
+      var period = [];
+      for (var i = 5; i < 17; i++) {
+        period.push(fieldNames[i]);
+      }
+      Periods.insert({'period': period});
+    }
+
   }
 });
 

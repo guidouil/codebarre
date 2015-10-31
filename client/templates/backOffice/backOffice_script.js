@@ -1,11 +1,60 @@
 Template.backOffice.helpers({
+  sdvs: function () {
+    return Sdvs.find({}, {sort:{order: 1}}).fetch();
+  }
 });
 
 Template.backOffice.events({
+  'change #csvFile': function (evt, tmpl) {
+    var csvFile = tmpl.find('#csvFile').files[0];
+    console.log(csvFile);
+    if (csvFile && csvFile.type === 'text/csv') {
+      $('#csvFileText').val(csvFile.name);
+      readFile(csvFile, function (content) {
+        Meteor.call('uploadCsv', content);
+      });
+    } else {
+      swal('Oops...', 'Must be a CSV file!', 'error');
+      $('#csvFileText').val('');
+    }
+    $('#csvFile').val('');
+  },
+  'change #sdv1': function (evt, tmpl) {
+    var series = [];
+    if (evt.currentTarget.value) {
+      var sdv1 = Sdvs.findOne({_id: evt.currentTarget.value});
+      series.push({name: sdv1.sdv + ' A-1', data: sdv1.previousPeriod});
+      series.push({name: sdv1.sdv, data: sdv1.currentPeriod});
+    }
+    Session.set('sdv1', series);
+    builtColumn();
+  },
+  'change #sdv2': function (evt, tmpl) {
+    var series = [];
+    if (evt.currentTarget.value) {
+      var sdv2 = Sdvs.findOne({_id: evt.currentTarget.value});
+      series.push({name: sdv2.sdv + ' A-1', data: sdv2.previousPeriod});
+      series.push({name: sdv2.sdv, data: sdv2.currentPeriod});
+    }
+    Session.set('sdv2', series);
+    builtColumn();
+  }
 });
 
+readFile = function (f, onLoadCallback) {
+  //When the file is loaded the callback is called with the contents as a string
+  var reader = new FileReader();
+  reader.onload = function (e){
+    var contents=e.target.result;
+    onLoadCallback(contents);
+  };
+  reader.readAsText(f);
+};
+
+
 Template.backOffice.onRendered(function () {
-  builtColumn();
+  Meteor.subscribe('Sdvs');
+  Meteor.subscribe('Periods');
 });
 
 Template.backOffice.onDestroyed(function () {
@@ -16,6 +65,11 @@ Template.backOffice.onDestroyed(function () {
  * Function to draw the column chart
  */
 function builtColumn () {
+  var period = Periods.findOne({});
+  var sdv1 = Session.get('sdv1') || [];
+  var sdv2 = Session.get('sdv2') || [];
+  var series = sdv1.concat(sdv2);
+  console.log(series);
 
   $('#container-column').highcharts({
     chart: {
@@ -23,11 +77,11 @@ function builtColumn () {
     },
 
     title: {
-      text: 'Monthly Average Rainfall'
+      text: 'Evolution part de marché'
     },
 
     subtitle: {
-      text: 'Source: WorldClimate.com'
+      text: 'Source: iri Worldwide'
     },
 
     credits: {
@@ -35,33 +89,20 @@ function builtColumn () {
     },
 
     xAxis: {
-      categories: [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec'
-      ]
+      categories: period.period
     },
 
     yAxis: {
       min: 0,
       title: {
-        text: 'Rainfall (mm)'
+        text: 'Part (pts)'
       }
     },
 
     tooltip: {
       headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
       pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-          '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+          '<td style="padding:0"><b>{point.y:.1f} pts</b></td></tr>',
       footerFormat: '</table>',
       shared: true,
       useHTML: true
@@ -74,22 +115,6 @@ function builtColumn () {
       }
     },
 
-    series: [{
-      name: 'Tokyo',
-      data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
-    }, {
-      name: 'New York',
-      data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-    }, {
-      name: 'London',
-      data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-    }, {
-      name: 'Berlin',
-      data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-    }]
+    series: series
   });
 }

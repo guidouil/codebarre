@@ -51,3 +51,7 @@ UI.registerHelper('formatDate', function (date) {
     return moment(date).format('DD/MM/YYYY HH:mm');
   }
 });
+
+UI.registerHelper('equals', function (a, b) {
+  return a === b;
+});

@@ -1,6 +1,29 @@
 <template name='backOffice'>
   <div class="ui basic segment">
     <h4>Back Office</h4>
+    <select id="sdv1" name="sdv1" class="ui dropdown">
+      <option value="">SDV 1</option>
+      {{#each sdvs}}
+        <option value="{{_id}}">{{sdv}}</option>
+      {{/each}}
+    </select>
+    <select id="sdv2" name="sdv2" class="ui dropdown">
+      <option value="">SDV 2</option>
+      {{#each sdvs}}
+        <option value="{{_id}}">{{sdv}}</option>
+      {{/each}}
+    </select>
     <div id="container-column" style="min-width: 310px; height: 400px;"></div>
+    <hr>
+    <h5>Import your data</h5>
+    <div class="field">
+      <div class="ui action massive input">
+        <input type="text" id="csvFileText">
+        <label for="csvFile" class="ui icon button btn-file">
+           <i class="file excel outline big icon"></i>
+           <input type="file" id="csvFile" name="csvFile" style="display: none">
+        </label>
+      </div>
+    </div>
   </div>
 </template>

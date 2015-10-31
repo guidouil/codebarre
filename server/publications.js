@@ -9,3 +9,11 @@ Meteor.publish('Products', function (productId) {
 Meteor.publish('Images', function () {
   return Images.find({});
 });
+
+Meteor.publish('Sdvs', function () {
+  return Sdvs.find({});
+});
+
+Meteor.publish('Periods', function () {
+  return Periods.find({});
+});
