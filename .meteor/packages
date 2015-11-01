@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 http
 iron:router
 accounts-password
-semantic:ui
 flemay:less-autoprefixer
 useraccounts:semantic-ui
 useraccounts:iron-routing
@@ -41,3 +40,5 @@ reload
 mdg:reload-on-resume
 maazalik:highcharts
 harrison:papa-parse
+semantic:ui-css
+semantic:ui-dropdown

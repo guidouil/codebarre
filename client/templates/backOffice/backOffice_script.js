@@ -88,6 +88,7 @@ Template.backOffice.onRendered(function () {
   Meteor.subscribe('Sdvs');
   Meteor.subscribe('SdvCas');
   Meteor.subscribe('Periods');
+  $('select').dropdown();
 });
 
 Template.backOffice.onDestroyed(function () {
